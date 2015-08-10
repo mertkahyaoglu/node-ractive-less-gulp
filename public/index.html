@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="$1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Node Ractive Gulp Less</title>
+
+        <link rel="stylesheet" href="dist/styles.css">
+    </head>
+    <body>
+
+        <div id="app"></div>
+
+        <script type="ractive" id="template">
+        <ul>
+          {{#each movies}}
+            <li>
+              <h3>{{this.title}}</h3>
+              <img src="{{this.poster}}" />
+            </li>
+          {{/each}}
+        </ul>
+        </script>
+
+        <script src="dist/bundle.js"></script>
+    </body>
+</html>

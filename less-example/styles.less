@@ -1,0 +1,61 @@
+/*
+compile:
+lessc styles.less > styles.css
+*/
+@background-color: #ffffff;
+@text-color: #1A237E;
+
+p{
+  background-color: @background-color;
+  color: @text-color;
+  padding: 15px;
+}
+
+/*************************/
+
+#circle{
+  background-color: #4CAF50;
+  border-radius: 100%;
+}
+
+#small-circle{
+  width: 50px;
+  height: 50px;
+  #circle
+}
+
+/************MIXINS*************/
+
+#circle-func(@size: 25px){
+  background-color: #4CAF50;
+  border-radius: 100%;
+
+  width: @size;
+  height: @size;
+}
+
+#big-circle{
+  #circle-func(100px)
+}
+
+/**********NESTING***************/
+
+ul{
+  background-color: #03A9F4;
+  padding: 10px;
+  list-style: none;
+
+  li{
+    background-color: #fff;
+    border-radius: 3px;
+    margin: 10px 0;
+  }
+}
+
+/***********OPERATIONS**************/
+@div-width: 100px;
+
+div{
+  height: 50px;
+  width: @div-width * 2;
+}
