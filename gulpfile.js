@@ -41,10 +41,11 @@ gulp.task('html', function() {
 });
 
 gulp.task('browser-sync', ['serve'], function() {
+  // sync changes with browser
 	browserSync.init({
-      server: {
-        baseDir: "./public"
-      }
+    server: {
+      baseDir: "./public"
+    }
   });
 });
 
