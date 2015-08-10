@@ -1,4 +1,4 @@
-var Ractive = require('ractive')
+var Ractive = require('ractive');
 var movies = require("./data").movies;
 
 var ractive = new Ractive({

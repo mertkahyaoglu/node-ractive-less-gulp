@@ -10,13 +10,15 @@ var gulp = require('gulp'),
     less = require('gulp-less'),
     minifyCSS = require('gulp-minify-css'),
     browserSync = require('browser-sync'),
+    jasmine = require('gulp-jasmine'),
     reload = browserSync.reload;
 
 var paths = {
   appjs: ['./public/js/app.js'],
   css: ['./public/css/*.less'],
   dist: './public/dist/',
-  html: ['./public/*.html']
+  html: ['./public/*.html'],
+  tests: ['spec/**.js']
 };
 
 gulp.task('js', function () {
@@ -49,15 +51,23 @@ gulp.task('browser-sync', ['serve'], function() {
   });
 });
 
+//start server
 gulp.task('serve', ['watch'], function () {
-  nodemon({script: 'server.js'}) //start server
+  nodemon({script: 'server.js'});
 })
 
+//watch files
 gulp.task('watch', function() {
-  //watch files
   gulp.watch(paths.css, ['css']);
   gulp.watch(paths.html, ['html']);
   gulp.watch(paths.appjs, ['js']);
 });
 
-gulp.task('default', ['js', 'css', 'browser-sync']);
+//tests
+gulp.task('test', function () {
+    return gulp.src(paths.tests)
+        .pipe(jasmine());
+});
+
+gulp.task('build', ['js', 'css']);
+gulp.task('default', ['build', 'browser-sync']);
