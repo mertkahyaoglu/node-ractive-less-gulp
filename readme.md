@@ -4,4 +4,4 @@ ractive-less-gulp
 > Basic Ractive app running on Node server.
 
 ### Run
-Terminal : `gulp`
+`npm start` to install dependencies and start gulp.
